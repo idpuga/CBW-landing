@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chile Blockchain Week 2025</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #ffffff;
+      color: #222;
+    }
+    header {
+      background: linear-gradient(135deg, #0033a0, #d52b1e);
+      color: white;
+      padding: 20px 40px;
+      position: relative;
+    }
+    header .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+    header nav a:hover {
+      text-decoration: underline;
+    }
+    header img {
+      max-width: 320px;
+      margin: 20px auto;
+      display: block;
+    }
+    header h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin: 10px 0;
+    }
+    header p {
+      text-align: center;
+      font-size: 1.2rem;
+      margin-top: 5px;
+    }
+    section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    h2 {
+      color: #0033a0;
+      border-bottom: 3px solid #d52b1e;
+      padding-bottom: 5px;
+    }
+    .event {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f9f9f9;
+      border-left: 6px solid #0033a0;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .event h3 {
+      margin: 0;
+      color: #0033a0;
+    }
+    .event p {
+      margin: 5px 0;
+    }
+    .event a {
+      color: #d52b1e;
+      text-decoration: none;
+    }
+    .event a:hover {
+      text-decoration: underline;
+    }
+    .event-logo {
+      width: 100px;
+      height: 100px;
+      margin-left: 20px;
+      background: #eee url("placeholder_logo.png") center/50% no-repeat;
+      border: 2px dashed #ccc;
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #0033a0;
+      color: #fff;
+      margin-top: 40px;
+    }
+    footer a {
+      color: #fff;
+      text-decoration: underline;
+    }
+    /* Botón de toggle idioma */
+    .lang-toggle {
+      background: #fff;
+      color: #0033a0;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .lang-toggle:hover {
+      background: #eee;
+    }
+    
+    /* Contact form styles */
+    .contact-form-container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border: 1px solid #e0e0e0;
+      max-width: 600px;
+      margin: 30px auto 0;
+    }
+    
+    .contact-form-container h3 {
+      color: #0033a0;
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-size: 1.3rem;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #333;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+      font-family: Arial, sans-serif;
+      box-sizing: border-box;
+      transition: border-color 0.3s ease;
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #0033a0;
+    }
+    
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    
+    .submit-btn {
+      background: linear-gradient(135deg, #0033a0, #d52b1e);
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 4px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,51,160,0.3);
+    }
+    
+    .submit-btn:active {
+      transform: translateY(0);
+    }
+    
+    .form-message {
+      margin-top: 15px;
+      padding: 10px;
+      border-radius: 4px;
+      font-weight: bold;
+      display: none;
+    }
+    
+    .form-message.success {
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+      display: block;
+    }
+    
+    .form-message.error {
+      background: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+      display: block;
+    }
+    
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="top-bar">
+      <nav>
+        <a href="#contacto">Contacto</a>
+        <a href="#quienes-somos">Quiénes somos</a>
+        <a href="https://forms.gle/xxxxxx" target="_blank">Participa</a>
+      </nav>
+      <button class="lang-toggle" onclick="toggleLang()">EN/ES</button>
+    </div>
+    <img src="Logo_Chile Blockchain Week.png" alt="Chile Blockchain Week Logo">
+    <h1>Chile Blockchain Week 2025</h1>
+    <p>Del 19 al 25 de octubre en Santiago de Chile</p>
+    <p>Una semana de innovación, builders y comunidad Web3</p>
+  </header>
+
+  <section>
+    <h2>Eventos confirmados</h2>
+
+    <div class="event">
+      <div>
+        <h3>Ethereum Chile 2025: Tierra de Fintech</h3>
+        <p><strong>24–25 de octubre</strong> · Evento principal</p>
+        <a href="https://ethereumchile.org" target="_blank">Más información</a>
+      </div>
+      <div class="event-logo"></div>
+    </div>
+
+    <div class="event">
+      <div>
+        <h3>Avalanche x Ethereum EVM Hackathon</h3>
+        <p><strong>Fechas a confirmar</strong></p>
+      </div>
+      <div class="event-logo"></div>
+    </div>
+
+    <div class="event">
+      <div>
+        <h3>AsaDAO Web3 Barbecue</h3>
+        <p><strong>Fechas a confirmar</strong></p>
+      </div>
+      <div class="event-logo"></div>
+    </div>
+
+    <div class="event">
+      <div>
+        <h3>Campus Onchain</h3>
+        <p><strong>Fechas a confirmar</strong></p>
+      </div>
+      <div class="event-logo"></div>
+    </div>
+
+    <div class="event">
+      <div>
+        <h3>PizzaDAO</h3>
+        <p><strong>Por confirmar</strong></p>
+      </div>
+      <div class="event-logo"></div>
+    </div>
+
+    <div class="event">
+      <div>
+        <h3>Próximamente más eventos...</h3>
+        <p>Estamos sumando nuevas actividades y comunidades para hacer de esta semana algo inolvidable.</p>
+      </div>
+      <div class="event-logo"></div>
+    </div>
+  </section>
+
+  <section id="quienes-somos">
+    <h2>Quiénes somos</h2>
+    <p>
+      Chile Blockchain Week es una iniciativa colaborativa impulsada por Ethereum Chile y comunidades aliadas 
+      para reunir durante una semana a constructores, empresas, académicos y entusiastas de la tecnología blockchain. 
+      Nuestro objetivo es crear un espacio de encuentro donde converjan innovación, regulación y adopción de Web3 
+      en un contexto latinoamericano con foco en Chile como puerta de entrada al Cono Sur.
+    </p>
+  </section>
+
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <p>Si deseas más información o quieres sumarte a la organización de eventos, contáctanos a través del siguiente formulario:</p>
+    
+    <div class="contact-form-container">
+      <form id="contact-form" class="contact-form">
+        <div class="form-group">
+          <label for="nombre">Nombre *</label>
+          <input type="text" id="nombre" name="nombre" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="mensaje">Mensaje *</label>
+          <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+        </div>
+        
+        <button type="submit" class="submit-btn">Enviar mensaje</button>
+      </form>
+      
+      <div id="form-message" class="form-message"></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Chile Blockchain Week · <a href="https://chileblockchainweek.org">chileblockchainweek.org</a></p>
+  </footer>
+
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  
+  <script>
+    // Initialize EmailJS with public key
+    (function() {
+      emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+    })();
+
+    function toggleLang() {
+      alert("Función de traducción EN/ES próximamente disponible");
+    }
+
+    // Contact form handling
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const submitBtn = document.querySelector('.submit-btn');
+      const messageDiv = document.getElementById('form-message');
+      
+      // Get form data
+      const nombre = document.getElementById('nombre').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const mensaje = document.getElementById('mensaje').value.trim();
+      
+      // Basic validation
+      if (!nombre || !email || !mensaje) {
+        messageDiv.className = 'form-message error';
+        messageDiv.textContent = 'Por favor, completa todos los campos obligatorios.';
+        messageDiv.style.display = 'block';
+        return;
+      }
+      
+      // Email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        messageDiv.className = 'form-message error';
+        messageDiv.textContent = 'Por favor, ingresa un email válido.';
+        messageDiv.style.display = 'block';
+        return;
+      }
+      
+      // Message length validation
+      if (mensaje.length < 10) {
+        messageDiv.className = 'form-message error';
+        messageDiv.textContent = 'El mensaje debe tener al menos 10 caracteres.';
+        messageDiv.style.display = 'block';
+        return;
+      }
+      
+      const formData = {
+        nombre: nombre,
+        email: email,
+        mensaje: mensaje,
+        to_email: 'igpuga@gmail.com' // Email destino
+      };
+      
+      // Show loading state
+      submitBtn.textContent = 'Enviando...';
+      submitBtn.disabled = true;
+      messageDiv.className = 'form-message';
+      messageDiv.style.display = 'none';
+      
+      // Send email using EmailJS
+      emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formData)
+        .then(function(response) {
+          // Success
+          messageDiv.className = 'form-message success';
+          messageDiv.textContent = '¡Mensaje enviado exitosamente! Te contactaremos pronto.';
+          messageDiv.style.display = 'block';
+          
+          // Reset form
+          document.getElementById('contact-form').reset();
+          
+          // Reset button
+          submitBtn.textContent = 'Enviar mensaje';
+          submitBtn.disabled = false;
+          
+          // Hide message after 5 seconds
+          setTimeout(function() {
+            messageDiv.style.display = 'none';
+          }, 5000);
+          
+        }, function(error) {
+          // Error
+          console.error('Error sending email:', error);
+          messageDiv.className = 'form-message error';
+          messageDiv.textContent = 'Error al enviar el mensaje. Por favor, intenta nuevamente o contacta directamente por email.';
+          messageDiv.style.display = 'block';
+          
+          // Reset button
+          submitBtn.textContent = 'Enviar mensaje';
+          submitBtn.disabled = false;
+        });
+    });
+  </script>
+</body>
+</html>
+
